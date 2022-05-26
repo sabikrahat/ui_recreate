@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_recreate/home_details/home_details.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -121,7 +122,11 @@ class _HomeState extends State<Home> {
                   children: List.generate(titles.length, (index) {
                     return Container(
                       width: double.infinity,
-                      margin: EdgeInsets.only(left: 25.0 * (index + 1)),
+                      margin: EdgeInsets.only(
+                        left: 35.0 * (index + 1),
+                        top: 15.0 * (titles.length - index + 1),
+                        bottom: 15.0 * (titles.length - index + 1),
+                      ),
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(images[index]),
@@ -166,7 +171,16 @@ class _HomeState extends State<Home> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    print('button tapped');
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: ((context) => HomeDetails(
+                                              title: titles[index],
+                                              imgPath: images[index],
+                                              dollar: dollars[index],
+                                            )),
+                                      ),
+                                    );
                                   },
                                   child: Container(
                                     padding: const EdgeInsets.all(6.0),
