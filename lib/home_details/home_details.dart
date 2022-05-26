@@ -57,7 +57,6 @@ class HomeDetails extends StatelessWidget {
               ),
             ),
             const Spacer(),
-
             ///
             /// 2nd element
             ///
