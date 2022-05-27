@@ -119,113 +119,117 @@ class _HomeState extends State<Home> {
               Expanded(
                 flex: 50,
                 child: Stack(
-                  children: List.generate(titles.length, (index) {
-                    return Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.only(
-                        left: 35.0 * (index + 1),
-                        top: 15.0 * (titles.length - index + 1),
-                        bottom: 15.0 * (titles.length - index + 1),
-                      ),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(images[index]),
-                          fit: BoxFit.cover,
+                  children: List.generate(
+                    titles.length,
+                    (index) {
+                      return Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(
+                          left: 35.0 * (index + 1),
+                          top: 15.0 * (titles.length - index + 1),
+                          bottom: 15.0 * (titles.length - index + 1),
                         ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(25.0),
-                          bottomLeft: Radius.circular(25.0),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(images[index]),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(25.0),
+                            bottomLeft: Radius.circular(25.0),
+                          ),
                         ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text(
-                              titles[index],
-                              style: const TextStyle(
-                                fontSize: 25.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Text(
+                                titles[index],
+                                style: const TextStyle(
+                                  fontSize: 25.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              dollars[index],
-                              style: const TextStyle(
-                                fontSize: 25.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
+                            const Spacer(),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                dollars[index],
+                                style: const TextStyle(
+                                  fontSize: 25.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: ((context) => HomeDetails(
-                                              title: titles[index],
-                                              imgPath: images[index],
-                                              dollar: dollars[index],
-                                            )),
+                            const Spacer(),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: ((context) => HomeDetails(
+                                                title: titles[index],
+                                                imgPath: images[index],
+                                                dollar: dollars[index],
+                                              )),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(6.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
                                       ),
-                                    );
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(6.0),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(25.0),
-                                    ),
-                                    child: const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 12.0,
-                                          right: 12.0,
-                                          top: 8.0,
-                                          bottom: 8.0),
-                                      child: Text(
-                                        'Take a look',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
+                                      child: const Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 12.0,
+                                            right: 12.0,
+                                            top: 8.0,
+                                            bottom: 8.0),
+                                        child: Text(
+                                          'Take a look',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              const Spacer(),
-                              Card(
-                                elevation: 5.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.bookmark,
-                                    size: 26,
+                                const Spacer(),
+                                Card(
+                                  elevation: 5.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.bookmark,
+                                      size: 26,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
+                                const Spacer(),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
               //
