@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   List<String> images = [
     'assets/building-2.jpg',
     'assets/building-3.jpg',
-    'assets/building.jpeg'
+    'assets/building.jpeg',
   ];
 
   @override
