@@ -9,18 +9,37 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> titles = [
-    'Opulence Apartment',
-    'ABC Apartment',
-    'DEF Apartment'
-  ];
+  // List<String> titles = [
+  //   'Opulence Apartment',
+  //   'ABC Apartment',
+  //   'DEF Apartment',
+  //   'DEF Apartment',
+  // ];
 
-  List<String> dollars = ['\$500', '\$600', '\$700'];
+  // List<String> dollars = ['\$500', '\$600', '\$700'];
 
-  List<String> images = [
-    'assets/building-2.jpg',
-    'assets/building-3.jpg',
-    'assets/building.jpeg',
+  // List<String> images = [
+  //   'assets/building-2.jpg',
+  //   'assets/building-3.jpg',
+  //   'assets/building.jpeg',
+  // ];
+
+  List<Map<String, String>> values = [
+    {
+      'title': 'Opulence Apartment',
+      'dollars': '\$500',
+      'image': 'assets/building-2.jpg',
+    },
+    {
+      'title': 'ABC Apartment',
+      'dollars': '\$600',
+      'image': 'assets/building-3.jpg',
+    },
+    {
+      'title': 'DEF Apartment',
+      'dollars': '\$700',
+      'image': 'assets/building.jpeg',
+    },
   ];
 
   @override
@@ -120,18 +139,18 @@ class _HomeState extends State<Home> {
                 flex: 50,
                 child: Stack(
                   children: List.generate(
-                    titles.length,
+                    values.length,
                     (index) {
                       return Container(
                         width: double.infinity,
                         margin: EdgeInsets.only(
                           left: 35.0 * (index + 1),
-                          top: 15.0 * (titles.length - index + 1),
-                          bottom: 15.0 * (titles.length - index + 1),
+                          top: 15.0 * (values.length - index + 1),
+                          bottom: 15.0 * (values.length - index + 1),
                         ),
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(images[index]),
+                            image: AssetImage(values[index]['image']!),
                             fit: BoxFit.cover,
                           ),
                           borderRadius: const BorderRadius.only(
@@ -146,7 +165,7 @@ class _HomeState extends State<Home> {
                             Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Text(
-                                titles[index],
+                                values[index]['title']!,
                                 style: const TextStyle(
                                   fontSize: 25.0,
                                   fontWeight: FontWeight.bold,
@@ -158,7 +177,7 @@ class _HomeState extends State<Home> {
                             Align(
                               alignment: Alignment.center,
                               child: Text(
-                                dollars[index],
+                                values[index]['dollars']!,
                                 style: const TextStyle(
                                   fontSize: 25.0,
                                   fontWeight: FontWeight.bold,
@@ -177,9 +196,9 @@ class _HomeState extends State<Home> {
                                         context,
                                         MaterialPageRoute(
                                           builder: ((context) => HomeDetails(
-                                                title: titles[index],
-                                                imgPath: images[index],
-                                                dollar: dollars[index],
+                                                title: values[index]['title']!,
+                                                imgPath: values[index]['image']!,
+                                                dollar: values[index]['dollars']!,
                                               )),
                                         ),
                                       );
