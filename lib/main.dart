@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_recreate/auth/login/login.dart';
-
-import 'home/home.dart';
+import 'package:provider/provider.dart';
+import 'package:ui_recreate/provider_page/pd_handler.dart';
+import 'package:ui_recreate/provider_page/provider_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Login(),
+    return MaterialApp(
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<counterProvider>(create: (_) => counterProvider()),
+        ],
+        child: const ProviderPage(),
+      ),
     );
   }
 }
-
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_recreate/home_details/home_details.dart';
+import 'package:ui_recreate/provider_page/provider_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -107,21 +108,29 @@ class _HomeState extends State<Home> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
-                            child: Card(
-                              elevation: 5.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.only(
-                                  left: 8.0,
-                                  right: 8.0,
-                                  top: 16.0,
-                                  bottom: 16.0,
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const ProviderPage()));
+                              },
+                              child: Card(
+                                elevation: 5.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
-                                child: Icon(
-                                  Icons.search,
-                                  size: 26,
+                                child: const Padding(
+                                  padding: EdgeInsets.only(
+                                    left: 8.0,
+                                    right: 8.0,
+                                    top: 16.0,
+                                    bottom: 16.0,
+                                  ),
+                                  child: Icon(
+                                    Icons.search,
+                                    size: 26,
+                                  ),
                                 ),
                               ),
                             ),
@@ -313,6 +322,10 @@ class _HomeState extends State<Home> {
                           InkWell(
                             onTap: () {
                               print('button tapped');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const ProviderPage()));
                             },
                             child: Container(
                               decoration: BoxDecoration(
