@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ui_recreate/api_handle/api_handle.dart';
 import 'package:ui_recreate/provider_page/pd_handler.dart';
 import 'package:ui_recreate/provider_page/provider_page.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider<counterProvider>(create: (_) => counterProvider()),
         ],
-        child: const ProviderPage(),
+        child: const ApiHandleWidget(),
       ),
     );
   }
